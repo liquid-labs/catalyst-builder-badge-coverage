@@ -17,7 +17,7 @@ const setupPassing = async({ cwd, myName, myVersion, passingBadges, requirePassi
     return {}
   }
 
-  const packageJSON = await getPackageJSON({ pkgDir: cwd })
+  const packageJSON = await getPackageJSON({ pkgDir : cwd })
   const { org, project } = getGitHubOrgAndProject({ packageJSON })
 
   try {

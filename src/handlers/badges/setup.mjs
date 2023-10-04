@@ -1,6 +1,5 @@
 import createError from 'http-errors'
 
-import { getGitHubOrgAndProject } from '@liquid-labs/github-toolkit'
 import { httpSmartResponse } from '@liquid-labs/http-smart-response'
 import { getPackageJSON } from '@liquid-labs/npm-toolkit'
 
