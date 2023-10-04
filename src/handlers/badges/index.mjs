@@ -1,5 +1,5 @@
 import * as setupHandler from './setup'
 
-const handlers = [ setupHandler ]
+const handlers = [setupHandler]
 
 export { handlers }
