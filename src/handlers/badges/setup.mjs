@@ -1,10 +1,14 @@
 import createError from 'http-errors'
 
-import { getPackageNameAndVersion } from '@liquid-labs/catalyst-lib-build'
+import { getGitHubOrgAndProject } from '@liquid-labs/github-toolkit'
 import { httpSmartResponse } from '@liquid-labs/http-smart-response'
+import { getPackageJSON } from '@liquid-labs/npm-toolkit'
 
 import { setupCoverage } from './lib/setup-coverage'
+import { setupPassing } from './lib/setup-passing'
 import { updateReadme } from './lib/update-readme'
+
+const defaultPassingBadges = ['unit-tests']
 
 const help = {
   name        : 'Setup project badges',
@@ -19,22 +23,45 @@ const parameters = [
     name      : 'noCoverage',
     isBoolean : true,
     summary   : 'Suppresses generation of the coverage badge.'
+  },
+  {
+    name      : 'noPassing',
+    isBoolean : true,
+    summary   : 'Suppresses generation of passing badges.'
+  },
+  {
+    name         : 'passingBadges',
+    isMultivalue : true,
+    summary      : `Lists the workflow badges to create if present. Defaults to [ '${defaultPassingBadges.join("', '")}' ]. If \`requirePassingBadges\` is true, then this will instead result in an error if no matching workflow found. Use \`noPassing\` to supress generation of passing badges entirely.`
+  },
+  {
+    name      : 'requirePassingBadges',
+    isBoolean : true,
+    summary   : 'If a any `passingBadges` not found, then an exception is raised.'
   }
 ]
 
 const func = ({ app, reporter }) => async(req, res) => {
   reporter.isolate()
 
+  const { noCoverage, noPassing, passingBadges = defaultPassingBadges, requirePassingBadges } = req.vars
+
   const cwd = req.get('X-CWD')
   if (cwd === undefined) {
     throw createError.BadRequest("Called 'badges setup', but working dir 'X-CWD' header not found.")
   }
 
-  const [myName, myVersion] = await getPackageNameAndVersion({ pkgDir : __dirname })
+  const packageJSON = await getPackageJSON({ pkgDir : __dirname })
+  const { name: myName, version: myVersion } = packageJSON
 
-  const builders = [
-    setupCoverage({ cwd, myName, myVersion })
-  ]
+  const builders = []
+
+  if (noCoverage !== true) {
+    builders.push(setupCoverage({ cwd, myName, myVersion }))
+  }
+  if (noPassing !== true) {
+    builders.push(setupPassing({ cwd, myName, myVersion, passingBadges, requirePassingBadges }))
+  }
 
   const results = await Promise.all(builders)
 

@@ -4,8 +4,19 @@ import * as fsPath from 'node:path'
 import { makeBadge } from 'badge-maker'
 
 const setupCoverage = async({ cwd, myName, myVersion }) => {
-  const cloverPath = fsPath.join(cwd, 'qa', 'coverage', 'clover.xml')
-  const contents = await fs.readFile(cloverPath, { encoding : 'utf8' })
+  let contents
+  try {
+    const cloverPath = fsPath.join(cwd, 'qa', 'coverage', 'clover.xml')
+    contents = await fs.readFile(cloverPath, { encoding : 'utf8' })
+  }
+  catch (e) {
+    if (e.code === 'ENOENT') { // that's fine
+      return {}
+    }
+    else {
+      throw e
+    }
+  }
 
   const metricsLine = contents.match(/(<metrics [^>]+>)/m)[1]
 
@@ -19,7 +30,7 @@ const setupCoverage = async({ cwd, myName, myVersion }) => {
   const coverage = ((coveredStatements / statements) + (coveredConditionals / conditionals) + (coveredMethods / methods)) / 3
   const coverageRounded = Math.round(coverage * 100)
   // anything less than 50% is red, then we make a gradient from 0 (red) to 1 (green)
-  const colorshift = coverage <= 0.5 ? 1 : (coverage - 0.5) * 2
+  const colorshift = coverage <= 0.5 ? 1 : 1 - (coverage - 0.5) * 2
 
   // credit: https://stackoverflow.com/a/17268489/929494
   const hue = Math.round((1 - colorshift) * 120)
@@ -29,7 +40,7 @@ const setupCoverage = async({ cwd, myName, myVersion }) => {
     label   : 'coverage',
     message : coverageRounded + '%',
     color   : hslString,
-    style   : 'flat'
+    style   : 'plastic'
   })
 
   const readmeAssetsPath = fsPath.join(cwd, '.readme-assets')
