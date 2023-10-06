@@ -1,0 +1,25 @@
+Test git rev: 139d8752ffb85efe8bfe6fc18de3243113866fd5
+PASS handlers/badges/lib/test/setup-coverage.test.js
+PASS handlers/badges/lib/test/update-readme.test.js
+-------------------------|---------|----------|---------|---------|-------------------
+File                     | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-------------------------|---------|----------|---------|---------|-------------------
+All files                |      30 |       30 |   33.33 |      30 |                   
+ src                     |       0 |        0 |       0 |       0 |                   
+  index.mjs              |       0 |        0 |       0 |       0 | 1-4               
+ src/handlers            |       0 |        0 |       0 |       0 |                   
+  index.mjs              |       0 |        0 |       0 |       0 | 1                 
+ src/handlers/badges     |       0 |        0 |       0 |       0 |                   
+  index.mjs              |       0 |        0 |       0 |       0 | 1-3               
+  setup.mjs              |       0 |        0 |       0 |       0 | 1-96              
+ src/handlers/badges/lib |   50.64 |       50 |   55.55 |    50.7 |                   
+  setup-coverage.mjs     |   88.88 |       70 |     100 |   88.46 | 13-17             
+  setup-passing.mjs      |       0 |        0 |       0 |       0 | 1-51              
+  update-readme.mjs      |     100 |      100 |     100 |     100 |                   
+-------------------------|---------|----------|---------|---------|-------------------
+
+Test Suites: 2 passed, 2 total
+Tests:       3 passed, 3 total
+Snapshots:   0 total
+Time:        0.306 s, estimated 1 s
+Ran all test suites.
