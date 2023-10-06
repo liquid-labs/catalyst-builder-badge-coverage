@@ -22,12 +22,12 @@ const setupCoverage = async({ cwd, myName, myVersion }) => {
 
   const statements = parseInt(metricsLine.match(/statements="(\d+)"/)[1])
   const coveredStatements = parseInt(metricsLine.match(/coveredstatements="(\d+)"/)[1])
-  const conditionals = parseInt(metricsLine.match(/conditionals="(\d+)"/)[1])
+  /* const conditionals = parseInt(metricsLine.match(/conditionals="(\d+)"/)[1])
   const coveredConditionals = parseInt(metricsLine.match(/coveredconditionals="(\d+)"/)[1])
   const methods = parseInt(metricsLine.match(/methods="(\d+)"/)[1])
-  const coveredMethods = parseInt(metricsLine.match(/coveredmethods="(\d+)"/)[1])
+  const coveredMethods = parseInt(metricsLine.match(/coveredmethods="(\d+)"/)[1]) */
 
-  const coverage = ((coveredStatements / statements) + (coveredConditionals / conditionals) + (coveredMethods / methods)) / 3
+  const coverage = coveredStatements / statements
   const coverageRounded = Math.round(coverage * 100)
   // anything less than 50% is red, then we make a gradient from 0 (red) to 1 (green)
   const colorshift = coverage <= 0.5 ? 1 : 1 - (coverage - 0.5) * 2
