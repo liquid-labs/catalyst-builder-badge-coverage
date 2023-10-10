@@ -3,8 +3,8 @@ import * as fsPath from 'node:path'
 
 const badgeLineRe = /^\s*\[!\[/
 
-const updateReadme = async({ cwd, badgesLine }) => {
-  const readmePath = fsPath.join(cwd, 'README.md')
+const updateReadme = async({ workingPkgRoot, badgesLine }) => {
+  const readmePath = fsPath.join(workingPkgRoot, 'README.md')
   const readmeContents = await fs.readFile(readmePath, { encoding : 'utf8' })
   const readmeLines = readmeContents.split('\n')
   const tocIndex = readmeLines.findIndex((l) => l.match(/^# +.+/))

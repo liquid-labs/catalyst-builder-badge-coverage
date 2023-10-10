@@ -10,7 +10,7 @@ describe('updateReadme', () => {
   const badgesLine = '[![some badge](./somelink)](./anotherLink)'
 
   beforeAll(async() => {
-    await updateReadme({ cwd : pkgPath, badgesLine })
+    await updateReadme({ workingPkgRoot : pkgPath, badgesLine })
   })
 
   test('inserts the badge line if not present', async() => {
@@ -21,7 +21,7 @@ describe('updateReadme', () => {
 
   test('replaces the badge line if present', async() => {
     const newBadgeLine = '[![new badge](./somelink)](./anotherLink)'
-    await updateReadme({ cwd : pkgPath, badgesLine : newBadgeLine })
+    await updateReadme({ workingPkgRoot : pkgPath, badgesLine : newBadgeLine })
     const afterContents = await fs.readFile(readmePath, { encoding : 'utf8' })
     const afterLines = afterContents.split('\n')
     expect(afterLines[1]).toBe(newBadgeLine)

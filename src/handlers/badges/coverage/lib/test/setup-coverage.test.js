@@ -10,7 +10,7 @@ describe('setupCoverage', () => {
   const pkgPath = fsPath.join(__dirname, 'data', 'pkgA')
 
   beforeAll(async() => {
-    await setupCoverage({ cwd : pkgPath, myName, myVersion })
+    await setupCoverage({ workingPkgRoot : pkgPath, myName, myVersion })
   })
 
   test('creates a badge file', () => {

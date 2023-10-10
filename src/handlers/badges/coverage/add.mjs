@@ -1,7 +1,7 @@
 import createError from 'http-errors'
 
+import { gatherBasicBuilderData } from '@liquid-labs/catalyst-lib-build'
 import { httpSmartResponse } from '@liquid-labs/http-smart-response'
-import { getPackageJSON } from '@liquid-labs/npm-toolkit'
 
 import { setupCoverage } from './lib/setup-coverage'
 import { setupPassing } from './lib/setup-passing'
@@ -45,21 +45,15 @@ const func = ({ app, reporter }) => async(req, res) => {
 
   const { noCoverage, noPassing, passingBadges = defaultPassingBadges, requirePassingBadges } = req.vars
 
-  const cwd = req.get('X-CWD')
-  if (cwd === undefined) {
-    throw createError.BadRequest("Called 'badges setup', but working dir 'X-CWD' header not found.")
-  }
-
-  const packageJSON = await getPackageJSON({ pkgDir : __dirname })
-  const { name: myName, version: myVersion } = packageJSON
+  const { builderName, builderVersion, workingPkgRoot } = gatherBasicBuilderData({ builderPkgDir: __dirname, req})
 
   const builders = []
 
   if (noCoverage !== true) {
-    builders.push(setupCoverage({ cwd, myName, myVersion }))
+    builders.push(setupCoverage({ workingPkgRoot, myName, myVersion }))
   }
   if (noPassing !== true) {
-    builders.push(setupPassing({ cwd, myName, myVersion, passingBadges, requirePassingBadges }))
+    builders.push(setupPassing({ workingPkgRoot, myName, myVersion, passingBadges, requirePassingBadges }))
   }
 
   const results = await Promise.all(builders)
@@ -77,7 +71,7 @@ const func = ({ app, reporter }) => async(req, res) => {
   }
 
   const badgesLine = badgeLines.join(' ')
-  const readmePromise = updateReadme({ cwd, badgesLine })
+  const readmePromise = updateReadme({ workingPkgRoot, badgesLine })
 
   const data = {
     dependencies : Object.keys(dependencyIndex).sort(),

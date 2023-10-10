@@ -7,17 +7,17 @@ import yaml from 'js-yaml'
 import { getGitHubOrgAndProject } from '@liquid-labs/github-toolkit'
 import { getPackageJSON } from '@liquid-labs/npm-toolkit'
 
-const setupPassing = async({ cwd, myName, myVersion, passingBadges, requirePassingBadges }) => {
+const setupPassing = async({ workingPkgRoot, myName, myVersion, passingBadges, requirePassingBadges }) => {
   const passingRegExes = passingBadges.map((b) => new RegExp(b, 'i'))
 
   let badgeLine = ''
 
-  const workflowsPath = fsPath.join(cwd, '.github', 'workflows')
+  const workflowsPath = fsPath.join(workingPkgRoot, '.github', 'workflows')
   if (!existsSync(workflowsPath)) {
     return {}
   }
 
-  const packageJSON = await getPackageJSON({ pkgDir : cwd })
+  const packageJSON = await getPackageJSON({ pkgDir : workingPkgRoot })
   const { org, project } = getGitHubOrgAndProject({ packageJSON })
 
   try {

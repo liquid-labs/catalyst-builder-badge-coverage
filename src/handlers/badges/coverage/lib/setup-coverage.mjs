@@ -3,10 +3,10 @@ import * as fsPath from 'node:path'
 
 import { makeBadge } from 'badge-maker'
 
-const setupCoverage = async({ cwd, myName, myVersion }) => {
+const setupCoverage = async({ workingPkgRoot, myName, myVersion }) => {
   let contents
   try {
-    const cloverPath = fsPath.join(cwd, 'qa', 'coverage', 'clover.xml')
+    const cloverPath = fsPath.join(workingPkgRoot, 'qa', 'coverage', 'clover.xml')
     contents = await fs.readFile(cloverPath, { encoding : 'utf8' })
   }
   catch (e) {
@@ -43,7 +43,7 @@ const setupCoverage = async({ cwd, myName, myVersion }) => {
     style   : 'plastic'
   })
 
-  const readmeAssetsPath = fsPath.join(cwd, '.readme-assets')
+  const readmeAssetsPath = fsPath.join(workingPkgRoot, '.readme-assets')
   await fs.mkdir(readmeAssetsPath, { recursive : true })
   const coverageBadgePath = fsPath.join(readmeAssetsPath, 'coverage.svg')
   await fs.writeFile(coverageBadgePath, badge)
