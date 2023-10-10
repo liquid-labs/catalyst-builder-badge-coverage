@@ -16,7 +16,7 @@ const help = {
 }
 
 const method = 'put'
-const path = ['badges', 'setup']
+const path = ['badges', 'coverage', 'add']
 const parameters = [
   {
     name      : 'noCoverage',
