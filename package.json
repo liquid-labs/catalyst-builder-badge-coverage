@@ -1,8 +1,8 @@
 {
-  "name": "@liquid-labs/catalyst-builder-badger",
+  "name": "@liquid-labs/catalyst-builder-badge-coverage",
   "version": "1.0.0-alpha.0",
   "description": "",
-  "main": "dist/catalyst-builder-badger.js",
+  "main": "dist/catalyst-builder-badge-coverage.js",
   "files": [
     "dist/"
   ],
@@ -21,13 +21,16 @@
   "keywords": [],
   "author": "Zane Rockenbaugh <zane@liquid-labs.com>",
   "license": "UNLICENSED",
-  "repository": "git+ssh://git@github.com/liquid-labs/catalyst-builder-badger.git",
-  "bugs": {
-    "url": "https://github.com/liquid-labs/catalyst-builder-badger/issues"
+  "repository": {
+    "url": "git+ssh://git@github.com/liquid-labs/catalyst-builder-badge-coverage.git",
+    "type": "git"
   },
-  "homepage": "https://github.com/liquid-labs/catalyst-builder-badger#readme",
+  "bugs": {
+    "url": "https://github.com/liquid-labs/catalyst-builder-badge-coverage/issues"
+  },
+  "homepage": "https://github.com/liquid-labs/catalyst-builder-badge-coverage#readme",
   "dependencies": {
-    "@liquid-labs/catalyst-lib-build": "^1.0.0-alpha.3",
+    "@liquid-labs/catalyst-lib-build": "^1.0.0-alpha.10",
     "@liquid-labs/github-toolkit": "^1.0.0-alpha.14",
     "@liquid-labs/http-smart-response": "^1.0.0-alpha.3",
     "@liquid-labs/npm-toolkit": "^1.0.0-alpha.5",
