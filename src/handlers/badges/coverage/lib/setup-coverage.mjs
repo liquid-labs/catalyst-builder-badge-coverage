@@ -3,7 +3,10 @@ import * as fsPath from 'node:path'
 
 import { makeBadge } from 'badge-maker'
 
-const setupCoverage = async({ workingPkgRoot, myName, myVersion }) => {
+import { getGitHubOrgAndProject } from '@liquid-labs/github-toolkit'
+import { getPackageJSON } from '@liquid-labs/npm-toolkit'
+
+const setupCoverage = async({ config, myName, myVersion, priority, workingPkgRoot }) => {
   let contents
   try {
     const cloverPath = fsPath.join(workingPkgRoot, 'qa', 'coverage', 'clover.xml')
@@ -48,17 +51,20 @@ const setupCoverage = async({ workingPkgRoot, myName, myVersion }) => {
   const coverageBadgePath = fsPath.join(readmeAssetsPath, 'coverage.svg')
   await fs.writeFile(coverageBadgePath, badge)
 
-  const badgeLine = `[![coverage: ${coverageRounded}%](./.readme-assets/coverage.svg)](https://google.com)`
+  const packageJSON = await getPackageJSON({ pkgDir : workingPkgRoot })
+  const { org, project } = getGitHubOrgAndProject({ packageJSON })
+
+  const badgeLine = `[![coverage: ${coverageRounded}%](./.readme-assets/coverage.svg)](https://github.com/${org}/${project}/pulls?q=is%3Apr+is%3Aclosed)`
 
   return {
-    badgeLine,
     scripts : [
       {
-        builder  : myName,
-        version  : myVersion,
-        priority : -1,
-        path     : coverageBadgePath,
-        purpose  : 'Test coverage badge for README.md.'
+        builder : myName,
+        version : myVersion,
+        priority,
+        badgeLine,
+        path    : coverageBadgePath,
+        purpose : 'Test coverage badge for README.md.'
       }
     ]
   }

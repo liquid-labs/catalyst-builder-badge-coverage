@@ -1,7 +1,7 @@
 {
   "name": "@liquid-labs/catalyst-builder-badge-coverage",
   "version": "1.0.0-alpha.0",
-  "description": "",
+  "description": "A catalyst-server plugin which generates coverage badges based on local `clover.xml` results.",
   "main": "dist/catalyst-builder-badge-coverage.js",
   "files": [
     "dist/"
@@ -30,17 +30,18 @@
   },
   "homepage": "https://github.com/liquid-labs/catalyst-builder-badge-coverage#readme",
   "dependencies": {
-    "@liquid-labs/catalyst-lib-build": "^1.0.0-alpha.10",
+    "@liquid-labs/catalyst-lib-badges": "file:.yalc/@liquid-labs/catalyst-lib-badges",
+    "@liquid-labs/catalyst-lib-build": "file:.yalc/@liquid-labs/catalyst-lib-build",
     "@liquid-labs/github-toolkit": "^1.0.0-alpha.14",
     "@liquid-labs/http-smart-response": "^1.0.0-alpha.3",
-    "@liquid-labs/npm-toolkit": "^1.0.0-alpha.5",
+    "@liquid-labs/npm-toolkit": "^1.0.0-alpha.7",
     "badge-maker": "^3.3.1",
     "http-errors": "^2.0.0",
     "js-yaml": "^4.1.0"
   },
   "devDependencies": {
-    "@liquid-labs/catalyst-resource-babel-and-rollup": "^1.0.0-alpha.1",
+    "@liquid-labs/catalyst-resource-babel-and-rollup": "^1.0.0-alpha.3",
     "@liquid-labs/catalyst-resource-eslint": "^1.0.0-alpha.1",
-    "@liquid-labs/catalyst-resource-jest": "^1.0.0-alpha.1"
+    "@liquid-labs/catalyst-resource-jest": "^1.0.0-alpha.3"
   }
 }
