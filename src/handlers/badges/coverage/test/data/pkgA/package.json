@@ -1,0 +1,4 @@
+{
+  "name": "@acme/gnarly",
+  "repository": "git+ssh://github.com/acme/gnarly"
+}
