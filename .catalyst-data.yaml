@@ -5,7 +5,7 @@ workflows:
         - '@liquid-labs/catalyst-resource-babel-and-rollup'
         - '@liquid-labs/catalyst-resource-eslint'
         - '@liquid-labs/catalyst-resource-jest'
-      scripts:
+      artifacts:
         - builder: '@liquid-labs/catalyst-builder-node'
           version: 1.0.0-alpha.0
           priority: 0
@@ -64,7 +64,7 @@ workflows:
         noDoc: true
   github:
     node-unit-test:
-      scripts:
+      artifacts:
         - builder: '@liquid-labs/catalyst-builder-github-workflows-node-unit-test'
           version: 1.0.0-alpha.0
           path: .github/workflows/unit-tests-node.yaml
@@ -73,11 +73,11 @@ workflows:
 badges:
   coverage:
     dependencies: []
-    scripts:
+    artifacts:
       - builder: '@liquid-labs/catalyst-builder-badge-coverage'
         version: 1.0.0-alpha.0
         priority: 0
-        badgeLine: >-
+        content: >-
           [![coverage:
           94%](./.readme-assets/coverage.svg)](https://github.com/liquid-labs/catalyst-builder-badge-coverage/pulls?q=is%3Apr+is%3Aclosed)
         path: >-
@@ -85,11 +85,12 @@ badges:
         purpose: Test coverage badge for README.md.
   github-workflow:
     dependencies: []
-    scripts:
+    artifacts:
       - builder: '@liquid-labs/catalyst-builder-badge-github-workflows'
         version: 1.0.0-alpha.0
         priority: '1'
-        badgeLine: >-
+        content: >-
           [![Unit
           tests](https://github.com/liquid-labs/catalyst-builder-badge-coverage/actions/workflows/unit-tests-node.yaml/badge.svg)](https://github.com/liquid-labs/catalyst-builder-badge-coverage/actions/workflows/unit-tests-node.yaml)
         purpose: Display status of 'Unit tests' GitHub Workflow.
+        config: {}
