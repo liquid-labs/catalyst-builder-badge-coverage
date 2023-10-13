@@ -41,6 +41,6 @@ describe('PUT:badges/coverage/add', () => {
   })
 
   test('produces a result with one script', () => {
-    expect(resultJSON.scripts).toHaveLength(1)
+    expect(resultJSON.artifacts).toHaveLength(1)
   })
 })

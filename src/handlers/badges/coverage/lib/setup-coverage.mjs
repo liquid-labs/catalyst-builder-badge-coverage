@@ -57,12 +57,12 @@ const setupCoverage = async({ config, myName, myVersion, priority, workingPkgRoo
   const badgeLine = `[![coverage: ${coverageRounded}%](./.readme-assets/coverage.svg)](https://github.com/${org}/${project}/pulls?q=is%3Apr+is%3Aclosed)`
 
   return {
-    scripts : [
+    artifacts : [
       {
         builder : myName,
         version : myVersion,
         priority,
-        badgeLine,
+        content : badgeLine,
         path    : coverageBadgePath,
         purpose : 'Test coverage badge for README.md.'
       }
