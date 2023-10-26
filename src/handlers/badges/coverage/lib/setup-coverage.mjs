@@ -3,7 +3,7 @@ import * as fsPath from 'node:path'
 
 import { makeBadge } from 'badge-maker'
 
-import { getGitHubOrgAndProject } from '@liquid-labs/github-toolkit'
+import { getGitHubOrgAndProjectBasename } from '@liquid-labs/github-toolkit'
 import { getPackageJSON } from '@liquid-labs/npm-toolkit'
 
 const setupCoverage = async({ config, myName, myVersion, priority, workingPkgRoot }) => {
@@ -52,9 +52,9 @@ const setupCoverage = async({ config, myName, myVersion, priority, workingPkgRoo
   await fs.writeFile(coverageBadgePath, badge)
 
   const packageJSON = await getPackageJSON({ pkgDir : workingPkgRoot })
-  const { org, project } = getGitHubOrgAndProject({ packageJSON })
+  const { org, projectBasename } = getGitHubOrgAndProjectBasename({ packageJSON })
 
-  const badgeLine = `[![coverage: ${coverageRounded}%](./.readme-assets/coverage.svg)](https://github.com/${org}/${project}/pulls?q=is%3Apr+is%3Aclosed)`
+  const badgeLine = `[![coverage: ${coverageRounded}%](./.readme-assets/coverage.svg)](https://github.com/${org}/${projectBasename}/pulls?q=is%3Apr+is%3Aclosed)`
 
   return {
     artifacts : [
