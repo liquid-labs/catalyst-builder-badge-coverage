@@ -1,0 +1,18 @@
+Test git rev: acf62d56302b42f839a614abe8d594e99e4fdb9d
+PASS handlers/badges/coverage/test/add.test.js
+PASS handlers/badges/coverage/lib/test/setup-coverage.test.js
+---------------------|---------|----------|---------|---------|-------------------
+File                 | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+---------------------|---------|----------|---------|---------|-------------------
+All files            |   94.11 |    72.72 |     100 |   93.87 |                   
+ coverage            |     100 |      100 |     100 |     100 |                   
+  add.mjs            |     100 |      100 |     100 |     100 |                   
+ coverage/lib        |   90.32 |       70 |     100 |      90 |                   
+  setup-coverage.mjs |   90.32 |       70 |     100 |      90 | 16-20             
+---------------------|---------|----------|---------|---------|-------------------
+
+Test Suites: 2 passed, 2 total
+Tests:       3 passed, 3 total
+Snapshots:   0 total
+Time:        0.533 s, estimated 1 s
+Ran all test suites.
