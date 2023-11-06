@@ -1,8 +1,8 @@
 {
-  "name": "@liquid-labs/catalyst-projects-badge-coverage",
+  "name": "@liquid-labs/catalyst-projects-badges-coverage",
   "version": "1.0.0-alpha.0",
   "description": "A catalyst-server plugin which generates coverage badges based on local `clover.xml` results.",
-  "main": "dist/catalyst-projects-badge-coverage.js",
+  "main": "dist/catalyst-projects-badges-coverage.js",
   "files": [
     "dist/"
   ],
@@ -22,13 +22,13 @@
   "author": "Zane Rockenbaugh <zane@liquid-labs.com>",
   "license": "UNLICENSED",
   "repository": {
-    "url": "git+ssh://git@github.com/liquid-labs/catalyst-projects-badge-coverage.git",
+    "url": "git+ssh://git@github.com/liquid-labs/catalyst-projects-badges-coverage.git",
     "type": "git"
   },
   "bugs": {
-    "url": "https://github.com/liquid-labs/catalyst-projects-badge-coverage/issues"
+    "url": "https://github.com/liquid-labs/catalyst-projects-badges-coverage/issues"
   },
-  "homepage": "https://github.com/liquid-labs/catalyst-projects-badge-coverage#readme",
+  "homepage": "https://github.com/liquid-labs/catalyst-projects-badges-coverage#readme",
   "dependencies": {
     "@liquid-labs/catalyst-lib-badges": "^1.0.0-alpha.3",
     "@liquid-labs/catalyst-lib-build": "^1.0.0-alpha.11",
