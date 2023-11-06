@@ -11,7 +11,7 @@ const help = {
 }
 
 const method = 'put'
-const path = ['badges', 'coverage', 'add']
+const path = ['projects', 'badges', 'coverage', 'add']
 const parameters = commonParameters()
 
 const func = ({ app, reporter }) => async(req, res) => {
