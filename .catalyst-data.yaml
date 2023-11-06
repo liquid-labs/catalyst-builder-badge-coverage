@@ -40,8 +40,8 @@ workflows:
         - builder: '@liquid-labs/catalyst-builder-node'
           version: 1.0.0-alpha.0
           priority: 50
-          path: make/50-catalyst-projects-badge-coverage-js.mk
-          purpose: Builds the 'dist/catalyst-projects-badge-coverage.js' artifact.
+          path: make/50-catalyst-projects-badges-coverage-js.mk
+          purpose: Builds the 'dist/catalyst-projects-badges-coverage.js' artifact.
         - builder: '@liquid-labs/catalyst-builder-node'
           version: 1.0.0-alpha.0
           priority: 55
@@ -74,14 +74,14 @@ badges:
   coverage:
     dependencies: []
     artifacts:
-      - builder: '@liquid-labs/catalyst-projects-badge-coverage'
+      - builder: '@liquid-labs/catalyst-projects-badges-coverage'
         version: 1.0.0-alpha.0
         priority: 0
         content: >-
           [![coverage:
-          94%](./.readme-assets/coverage.svg)](https://github.com/liquid-labs/catalyst-projects-badge-coverage/pulls?q=is%3Apr+is%3Aclosed)
+          94%](./.readme-assets/coverage.svg)](https://github.com/liquid-labs/catalyst-projects-badges-coverage/pulls?q=is%3Apr+is%3Aclosed)
         path: >-
-          /Users/zane/.liq/playground/liquid-labs/catalyst-projects-badge-coverage/.readme-assets/coverage.svg
+          /Users/zane/.liq/playground/liquid-labs/catalyst-projects-badges-coverage/.readme-assets/coverage.svg
         purpose: Test coverage badge for README.md.
   github-workflow:
     dependencies: []
@@ -91,6 +91,6 @@ badges:
         priority: '1'
         content: >-
           [![Unit
-          tests](https://github.com/liquid-labs/catalyst-projects-badge-coverage/actions/workflows/unit-tests-node.yaml/badge.svg)](https://github.com/liquid-labs/catalyst-projects-badge-coverage/actions/workflows/unit-tests-node.yaml)
+          tests](https://github.com/liquid-labs/catalyst-projects-badges-coverage/actions/workflows/unit-tests-node.yaml/badge.svg)](https://github.com/liquid-labs/catalyst-projects-badges-coverage/actions/workflows/unit-tests-node.yaml)
         purpose: Display status of 'Unit tests' GitHub Workflow.
         config: {}
