@@ -1,6 +1,6 @@
 {
   "name": "@liquid-labs/catalyst-projects-badges-coverage",
-  "version": "1.0.0-alpha.0",
+  "version": "1.0.0-alpha.1",
   "description": "A catalyst-server plugin which generates coverage badges based on local `clover.xml` results.",
   "main": "dist/catalyst-projects-badges-coverage.js",
   "files": [
