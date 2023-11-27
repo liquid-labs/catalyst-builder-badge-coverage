@@ -5,7 +5,7 @@ import * as fsPath from 'node:path'
 import { setupCoverage } from '../setup-coverage'
 
 describe('setupCoverage', () => {
-  const myName = '@liquid-labs/catalyst-builder-badger'
+  const myName = '@liquid-labs/sdlc-builder-badger'
   const myVersion = '1.0.1'
   const pkgPath = fsPath.join(__dirname, 'data', 'pkgA')
 
