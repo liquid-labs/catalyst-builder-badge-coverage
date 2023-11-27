@@ -1,6 +1,6 @@
 {
   "name": "@liquid-labs/sdlc-projects-badges-coverage",
-  "version": "1.0.0-alpha.1",
+  "version": "1.0.0-alpha.2",
   "description": "A plugable-express plugin which generates coverage badges based on local `clover.xml` results.",
   "main": "dist/sdlc-projects-badges-coverage.js",
   "files": [
