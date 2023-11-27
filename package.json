@@ -33,8 +33,8 @@
     "@liquid-labs/github-toolkit": "^1.0.0-alpha.16",
     "@liquid-labs/http-smart-response": "^1.0.0-alpha.3",
     "@liquid-labs/npm-toolkit": "^1.0.0-alpha.7",
-    "@liquid-labs/sdlc-lib-badges": "^1.0.0-alpha.4",
-    "@liquid-labs/sdlc-lib-build": "^1.0.0-alpha.13",
+    "@liquid-labs/sdlc-lib-badges": "^1.0.0-alpha.5",
+    "@liquid-labs/sdlc-lib-build": "^1.0.0-alpha.14",
     "badge-maker": "^3.3.1",
     "http-errors": "^2.0.0",
     "js-yaml": "^4.1.0"

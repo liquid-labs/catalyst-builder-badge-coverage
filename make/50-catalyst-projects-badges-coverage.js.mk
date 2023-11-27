@@ -2,10 +2,10 @@
 # https://npmjs.com/package/@liquid-labs/catalyst-builder-node for further details
 
 #####
-# build dist/catalyst-projects-badges-coverage.js
+# build dist/sdlc-projects-badges-coverage.js
 #####
 
-CATALYST_CATALYST_BUILDER_BADGE_COVERAGE_JS:=$(DIST)/catalyst-projects-badges-coverage.js
+CATALYST_CATALYST_BUILDER_BADGE_COVERAGE_JS:=$(DIST)/sdlc-projects-badges-coverage.js
 CATALYST_CATALYST_BUILDER_BADGE_COVERAGE_JS_ENTRY=$(SRC)/index.mjs
 BUILD_TARGETS+=$(CATALYST_CATALYST_BUILDER_BADGE_COVERAGE_JS)
 
@@ -15,5 +15,5 @@ $(CATALYST_CATALYST_BUILDER_BADGE_COVERAGE_JS): package.json $(CATALYST_ALL_NON_
 	  $(CATALYST_ROLLUP) --config $(CATALYST_ROLLUP_CONFIG)
 
 #####
-# end dist/catalyst-projects-badges-coverage.js
+# end dist/sdlc-projects-badges-coverage.js
 #####
