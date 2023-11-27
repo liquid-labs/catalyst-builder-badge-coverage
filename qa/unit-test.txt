@@ -1,0 +1,20 @@
+Test git rev: 1ea80855f4f7e98b7e7921ae62bbda831ce757ab
+(node:85336) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+PASS handlers/projects/badges/coverage/lib/test/setup-coverage.test.js
+PASS handlers/projects/badges/coverage/test/add.test.js
+---------------------|---------|----------|---------|---------|-------------------
+File                 | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+---------------------|---------|----------|---------|---------|-------------------
+All files            |   94.11 |    72.72 |     100 |   93.87 |                   
+ coverage            |     100 |      100 |     100 |     100 |                   
+  add.mjs            |     100 |      100 |     100 |     100 |                   
+ coverage/lib        |   90.32 |       70 |     100 |      90 |                   
+  setup-coverage.mjs |   90.32 |       70 |     100 |      90 | 16-20             
+---------------------|---------|----------|---------|---------|-------------------
+
+Test Suites: 2 passed, 2 total
+Tests:       3 passed, 3 total
+Snapshots:   0 total
+Time:        0.273 s, estimated 1 s
+Ran all test suites.
